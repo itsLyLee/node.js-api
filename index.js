@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const express = require("express");
 const app = express();
-
+const mongoose = require("mongoose");
 //Import Routes
 const authRoute = require("./routes/auth");
 
