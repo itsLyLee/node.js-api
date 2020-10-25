@@ -2,6 +2,10 @@ const { Router } = require("express");
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+
+//Connect to DB
+mongoose.connect();
+
 //Import Routes
 const authRoute = require("./routes/auth");
 
