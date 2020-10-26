@@ -7,10 +7,9 @@ const mongoose = require("mongoose");
 dotenv.config();
 
 //Connect to DB
-process.env.DB_CONNECT,
-  mongoose.connect({ useNewUrlParser: true }, () =>
-    console.log("connected to db!")
-  );
+mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () =>
+  console.log("connected to db!")
+);
 
 //Import Routes
 const authRoute = require("./routes/auth");
