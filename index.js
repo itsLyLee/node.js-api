@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 //Connect to DB
 mongoose.connect(
   "mongodb+srv://LyLee:Draconis9301@cluster0.qkpvq.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  { useNewUrlParser: true },
   () => console.log("connected to db!")
 );
 
