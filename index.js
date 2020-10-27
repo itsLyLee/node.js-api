@@ -16,7 +16,6 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () =>
 
 //Middleware
 app.use(express.json());
-
 //Route Middlewares
 app.use("/api/user", authRoute);
 
