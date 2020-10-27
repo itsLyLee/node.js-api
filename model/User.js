@@ -6,4 +6,10 @@ const userSchema = new mongoose.Schema({
     required: true,
     min: 6,
   },
+  email: {
+    type: String,
+    required: true,
+    max: 255,
+    min: 6,
+  },
 });
