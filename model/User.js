@@ -12,4 +12,11 @@ const userSchema = new mongoose.Schema({
     max: 255,
     min: 6,
   },
+  password: {
+      type: String,
+      required: true,
+      max: 1024,
+      in: 6
+  },
+  date:
 });
