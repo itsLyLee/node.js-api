@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const User = require("../model/User");
 const bcrypt = require("bcryptjs");
-const { registerValidation } = require("../validation");
+const { registerValidation, loginValidation } = require("../validation");
 
 router.post("/register", async (req, res) => {
   //VALIDATE THE DATA BEFORE WE MAKE A USER
@@ -24,10 +24,17 @@ router.post("/register", async (req, res) => {
   });
   try {
     const savedUser = await user.save();
-    res.send(savedUser);
+    res.send({ user: user._id });
   } catch (err) {
     res.status(400).send(err);
   }
+});
+
+//Login
+router.post("/login", (req, res) => {
+  //VALIDATE THE DATA BEFORE WE MAKE A USER
+  const { error } = loginValidation(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
 });
 
 module.exports = router;
