@@ -2,10 +2,6 @@ const router = require("express").Router();
 const User = require("../model/User");
 
 router.post("/register", async (req, res) => {
-  //VALIDATE THE DATA BEFORE WE MAKE A USER
-  const { error } = schema.validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
-
   const user = new User({
     name: req.body.name,
     email: req.body.email,
