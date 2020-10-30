@@ -37,7 +37,7 @@ router.post("/login", (req, res) => {
   if (error) return res.status(400).send(error.details[0].message);
   //Check if the email exists
   const emailExist = await User.findOne({ email: req.body.email });
-  if (emailExist) return res.status(400).send("Email already exists");
+  if (!emailExist) return res.status(400).send("Email or password is wrong");
 });
 
 module.exports = router;
