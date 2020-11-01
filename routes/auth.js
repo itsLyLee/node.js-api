@@ -21,7 +21,7 @@ router.post("/register", async (req, res) => {
     name: req.body.name,
     email: req.body.email,
     password: hashedpassword,
-  });
+    });
   try {
     const savedUser = await user.save();
     res.send({ user: user._id });
@@ -40,6 +40,7 @@ router.post("/login", (req, res) => {
   if (!user) return res.status(400).send("Email or password is wrong");
   //Password is correct
   const validPass = await bcrypt.compare(req.body.password, user.password);
+  if(!validPass) return res.status(400).send("Invalid password");
 });
 
 module.exports = router;
