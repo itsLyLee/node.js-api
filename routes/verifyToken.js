@@ -8,5 +8,6 @@ function auth(req, res, next) {
     const verified = jwt.verify(token, process.env.TOKEN_SECRET);
     req.user = verified;
   } catch (err) {
-    res.status(400).send('Invalid Token');
+    res.status(400).send("Invalid Token");
+  }
 }
